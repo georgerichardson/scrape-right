@@ -17,3 +17,25 @@
 For categories, we're considering:
 - far-right (DailyStormer)  
 - conspiracy website (info-wars)  
+
+## Sites to Scrape:
+**Be careful: some of these sites are seriously dark corners of the web. Hate groups, militia's, white nationalists, etc. Browse with care!**  
+
+#### English
+[Breitbart](http://www.breitbart.com/)
+[Daily Stormer](http://www.dailystormer.com/)
+[Stormfront](https://www.stormfront.org/forum/index.php/)
+/pol (4chan)
+[/r/TheDonald](https://www.reddit.com/r/thedonald/) (reddit)
+
+#### German 
+http://www.blauenarzisse.de
+http://info-direkt.eu
+https://www.contra-magazin.com
+http://www.denken-macht-frei.info
+https://derhonigmannsagt.wordpress.com
+http://www.gegenargument.at
+http://www.freiewelt.net
+https://jungefreiheit.de
+http://www.metropolico.org
+http://www.pi-news.net
