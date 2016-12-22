@@ -16,6 +16,7 @@ class Article(scrapy.Item):
     pub_datetime = scrapy.Field()
     modified_datetime = scrapy.Field()
     title = scrapy.Field()
-    headline = scrapy.Field()
+    lead = scrapy.Field()
     text_blob = scrapy.Field()
+    source = scrapy.Field()
     category = scrapy.Field()

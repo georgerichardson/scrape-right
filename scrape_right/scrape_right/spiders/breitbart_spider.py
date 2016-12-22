@@ -30,8 +30,8 @@ class BreitbartSpider(scrapy.Spider):
         # Limit to main article body to avoid tag conflicts with other portions of page
         page = response.xpath('//div[contains(@id, "MainW")]')
 
-        # Combine headling and text from <p> tags into one string
-        def get_text_blob(page, headline):
+        # Helper function to combine lead plus text body into one string
+        def get_text_blob(page):
             if page.xpath('//h2/text()').extract_first():
                 blob = page.xpath('//h2/text()').extract_first()
             else:
@@ -42,14 +42,15 @@ class BreitbartSpider(scrapy.Spider):
 
         # Create and return article item
         article = Article(
-            language='en',
+            language=response.xpath('/html/@lang').extract(),
             url=response.url,
             authors=page.xpath('//a[contains(@class, "byauthor")]/text()').extract_first(),
             pub_datetime=page.xpath('//time[contains(@class, "published")]/@datetime').extract(),
             modified_datetime=page.xpath('//time[contains(@class, "modified")]/@datetime').extract(),
             title=page.xpath('//h1[contains(@itemprop, "headline")]/text()').extract_first(),
-            headline=page.xpath('//h2/text()').extract_first(),
-            text_blob=get_text_blob(page, False),
+            lead=page.xpath('//h2/text()').extract_first(),
+            text_blob=get_text_blob(page),
+            source='breitbart',
 
         )
 
