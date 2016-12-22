@@ -11,17 +11,28 @@ class BreitbartSpider(scrapy.Spider):
         ]
 
         for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse_homepage)
+            yield scrapy.Request(url=url, callback=self.parse_url)
 
-    def parse_homepage(self, response):
-        '''Parse home page looking for links. Schedule requests article URL
+    def parse_url(self, response):
+        '''Parse top nav bar for major categories. Schedule requests to each category
+        landing page and call parse_landing_page'''
+
+        for item in response.xpath('//li/a'):
+            category = item.xpath('@href').extract_first()
+            yield scrapy.Request(response.urljoin(category),
+                                 callback=self.parse_landing_page)
+
+    def parse_landing_page(self, response):
+        '''Parse main page looking for articles. Schedule requests article URL
         and parse with parse_article
         '''
 
+        # parse links on front page
         for article in response.xpath('//article/a'):
             article_url = article.xpath('@href').extract_first()
             yield scrapy.Request(response.urljoin(article_url),
                                  callback=self.parse_article)
+        # get links from top nav bar
 
     def parse_article(self, response):
         '''Main function for parsing articles. Takes response from parse_homepage
