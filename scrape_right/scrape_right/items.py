@@ -8,7 +8,14 @@
 import scrapy
 
 
-class ScrapeRightItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class Article(scrapy.Item):
+
+    language = scrapy.Field()
+    url = scrapy.Field()
+    authors = scrapy.Field()
+    pub_datetime = scrapy.Field()
+    modified_datetime = scrapy.Field()
+    title = scrapy.Field()
+    headline = scrapy.Field()
+    text_blob = scrapy.Field()
+    category = scrapy.Field()
