@@ -10,7 +10,7 @@ We are a sub project under wider data for [democracy](https://medium.com/data-fo
 ## Basic Structure:  
 * See scrapy architecture [overview](https://doc.scrapy.org/en/1.2/topics/architecture.html)
 * Each site will have a custom spider `/spiders/<sitename>_spider.py` which contains rules specific to collecting links and parsing information contained in that site.
-* All spiders should return an Article [item](https://doc.scrapy.org/en/1.2/topics/items.html) (see `items.py`) which will be be validated and saved by shared logic in `pipline.py` (Pipeline implementation TBD)
+* All spiders should return an Article [item](https://doc.scrapy.org/en/1.2/topics/items.html) (see `items.py`) which will be be validated and saved by shared logic in `pipline.py`
   * If you have additional metadata consider creating new item class and inheriting from Article as shown [here](https://doc.scrapy.org/en/1.2/topics/items.html#extending-items)
 
 ## Data Spec (Work in progress):  
@@ -28,6 +28,31 @@ We are a sub project under wider data for [democracy](https://medium.com/data-fo
 For categories, we're considering:  
 - far-right (DailyStormer)  
 - conspiracy website (info-wars)  
+
+## Pipeline
+
+### What is it?
+A collection of objects containing cleaning, validation and persistence logic. Each one should be named `*Pipeline`, i.e. `CleanTextPipeline`.
+
+### How do I create one?
+  1. Create a new class with the proper naming convention in `scrape_right/scrape_right/pipelines.py`.
+  2. Implement a public method named `process_item` which receives both an `item` and `spider`. If the `item` passes whatever logic is present in this method, `return item`. If not, `DropItem`, using Scrapy's custom exception. The following is an example taken from the Scrapy [documentation](https://doc.scrapy.org/topics/item-pipeline.html):
+```python
+from scrapy.exceptions import DropItem
+
+class PricePipeline:
+
+    vat_factor = 1.15
+
+    def process_item(self, item, spider):
+        if item['price']:
+            if item['price_excludes_vat']:
+                item['price'] = item['price'] * self.vat_factor
+            return item
+        else:
+            raise DropItem("Missing price in %s" % item)
+  ```
+  3. Add your pipeline object to `ITEM_PIPELINES` in `scrape_right/scrape_right/settings.py`. The key should be the relative import path to your object, i.e. `scrape_right.pipelines.CleanTextPipeline`. The value should be an integer specifying the order that the pipeline should be run. (Pipeline A and Pipeline B with values 1 and 2 respectively implies: every item will first pass through Pipeline A then Pipeline B.)
 
 ## How can you help?  
 * Experience with scrapy or general ideas about direction of project? Join us in slack!
