@@ -46,6 +46,7 @@ For categories, we're considering:
 [Stormfront](https://www.stormfront.org/forum/index.php/)  
 /pol (4chan)  
 [/r/TheDonald](https://www.reddit.com/r/thedonald/) (reddit)  
+[American Renaissance](https://www.amren.com/)
 
 #### German
 http://www.blauenarzisse.de  
