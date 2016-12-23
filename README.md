@@ -64,5 +64,5 @@ http://www.pi-news.net
 * Clone locally with command `https://github.com/Data4Democracy/scrape-right.git`  
 * Conda package manager is easiest way to ensure all dependencies are correctly installed. If you have [anaconda](https://www.continuum.io/downloads) installed on your machine run `conda env create -f environment.yml` from the main directory. Alternatively you can install dependencies via pip (see `requirements.txt`).
 * Activate your environment. Ex: `source activate scrape-right` (mac/linux) or `activate scrape-right` (windows).  
-* To test everything is working run `scrapy crawl breitbart -o test.json` this will activate the breitbart spider and save the output to a json file in your active directory.  
+* To test everything is working, navigate down to the scrapy project directory `cd scrape_right` and run `scrapy crawl breitbart -o test.json` this will activate the breitbart spider and save the output to a json file in your active directory.  
 * Questions or issues you can join the team in slack and/or ping @bstarling.  
