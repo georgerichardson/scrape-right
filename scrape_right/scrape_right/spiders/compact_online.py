@@ -39,7 +39,7 @@ class CompactOnline(CrawlSpider):
                 language='de',
                 url=response.url,
                 authors=response.xpath('//a[contains(@rel, "author")]/text()').extract_first(),
-                pub_datetime=response.xpath("//meta[@property='article:published_time']/@content").extract(),
+                pub_datetime=response.xpath("//meta[@property='article:published_time']/@content").extract_first(),
                 title=response.xpath("//meta[@property='og:title']/@content").extract_first(),
                 text_blob=get_text_blob(response),
                 source="compact-online"
