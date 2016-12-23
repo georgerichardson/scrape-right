@@ -6,6 +6,16 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 
-class ScrapeRightPipeline(object):
+from scrapy.exceptions import DropItem
+
+
+class CleanTextPipeline:
+
+    @staticmethod
+    def _clean_text(text):
+        return text.lower()
+
     def process_item(self, item, spider):
+        for section in ['lead', 'text_blob', 'title']:
+            item[section] = self._clean_text(item[section])
         return item
