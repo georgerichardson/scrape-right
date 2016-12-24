@@ -5,14 +5,16 @@
 - [Scrapy 1.2.2](https://doc.scrapy.org/en/1.2/index.html)
 
 ## Purpose:  
-We are a sub project under wider data for [democracy](https://medium.com/data-for-democracy/origin-story-b740f14ca6ed#.ixjfjveq) umbrella. Scrape-right is a work in progresse tool which will be used to crawl online communities of the alt-right/fringe-right. If you have ideas for analysis you would like to do, let us know!  
+We are a sub project under wider data for [democracy](https://medium.com/data-for-democracy/origin-story-b740f14ca6ed#.ixjfjveq) umbrella. Scrape-right is a work in progress tool which will be used to crawl online communities of the alt-right/fringe-right. If you have ideas for analysis you would like to do, let us know!  
 
-## How can you help?  
-* Volunteer to build a spider. Do not worry if you do not have previous experience, there are lots of helpful people in our group chat.
-  * If you already know what site you'd like to work on. Open a pull request stating what you would like to work on. This is a good way solicit for feedback and prevent multiple people from working on the same thing. Ask in slack if you need any help with this.
-* Experience with scrapy and willing to answer questions? Join us in slack!  
+## How can you help?   
+* Provide feedback on any of our open issues or open new ones.
+* Browse our `help wanted` issues. See if there is anything that interests you.
+* Volunteer to build a spider.
+  * Do not worry if you do not have previous experience, there are lots of helpful people in our group chat. Checkout `scrape_right/spiders/example.py` to get a feel for how a basic spider works.
+  * If you already know what site you'd like to work on. Open a pull request stating what you would like to work on. This is a good way solicit for feedback and prevent multiple people from working on the same thing. Ask in slack if you need any help with this.  
+* Experience with scrapy and willing to answer questions? Come hang out in slack  
 * Help us standardize and store our data.  
-* Input or additions to our site list.  
 * Let us know how you'd like to use this data for your own analysis. Suggestions for new sources/metadata you'd like to see to facilitate your analysis.  
 * We welcome all input or ideas you may have.  
 
@@ -70,12 +72,13 @@ Coming soon!
 
 ### In Progress  
 [Breitbart](http://www.breitbart.com/) - @bstarling in slack  
-[Compact-Online](http://www.compact-online.de) @lukas in slack
+[Compact-Online](http://www.compact-online.de) @lukas in slack  
+[Daily Stormer](http://www.dailystormer.com/) @matt.kleinert in slack  
 
 ### Looking for help  
 
 #### English  
-[Daily Stormer](http://www.dailystormer.com/)  
+
 [Stormfront](https://www.stormfront.org/forum/index.php/)  
 /pol (4chan)  
 [/r/TheDonald](https://www.reddit.com/r/thedonald/) (reddit)  
@@ -98,6 +101,5 @@ http://www.pi-news.net
 * Clone locally with command `https://github.com/Data4Democracy/scrape-right.git`  
 * Conda package manager is easiest way to ensure all dependencies are correctly installed. If you have [anaconda](https://www.continuum.io/downloads) installed on your machine run `conda env create -f environment.yml` from the main directory. Alternatively you can install dependencies via pip (see `requirements.txt`).
 * Activate your environment. Ex: `source activate scrape-right` (mac/linux) or `activate scrape-right` (windows).  
-* To test everything is working, navigate down to the scrapy project directory `cd scrape_right` and run `scrapy crawl breitbart -o test.json` this will activate the breitbart spider and save the output to a json file in your active directory.  
+* To test everything is working, navigate down to the scrapy project directory `cd scrape_right` and run `scrapy crawl example -o test.json` this will activate the example spider and should save a json file containing ten quotes inside the `scrape_right` directory.  
 * Questions or issues you can join the team in slack and/or ping @bstarling.  
-

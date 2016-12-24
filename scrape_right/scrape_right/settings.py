@@ -66,7 +66,8 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 8
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'scrape_right.pipelines.CleanTextPipeline': 1,
+    'scrape_right.pipelines.ValidateRequiredFields': 100,
+    'scrape_right.pipelines.CleanTextPipeline': 200,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
