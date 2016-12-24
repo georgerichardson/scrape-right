@@ -5,29 +5,37 @@
 - [Scrapy 1.2.2](https://doc.scrapy.org/en/1.2/index.html)
 
 ## Purpose:  
-We are a sub project under wider data for [democracy](https://medium.com/data-for-democracy/origin-story-b740f14ca6ed#.ixjfjveq) umbrella. Scrape-right is a work in progressed which will be used to crawl online communities and news sources of the alt-right/fringe-right. If you have ideas for analysis you would like to do, let us know!
+We are a sub project under wider data for [democracy](https://medium.com/data-for-democracy/origin-story-b740f14ca6ed#.ixjfjveq) umbrella. Scrape-right is a work in progresse tool which will be used to crawl online communities of the alt-right/fringe-right. If you have ideas for analysis you would like to do, let us know!  
+
+## How can you help?  
+* Volunteer to build a spider. Do not worry if you do not have previous experience, there are lots of helpful people in our group chat.
+  * If you already know what site you'd like to work on. Open a pull request stating what you would like to work on. This is a good way solicit for feedback and prevent multiple people from working on the same thing. Ask in slack if you need any help with this.
+* Experience with scrapy and willing to answer questions? Join us in slack!  
+* Help us standardize and store our data.  
+* Input or additions to our site list.  
+* Let us know how you'd like to use this data for your own analysis. Suggestions for new sources/metadata you'd like to see to facilitate your analysis.  
+* We welcome all input or ideas you may have.  
 
 ## Basic Structure:  
 * See scrapy architecture [overview](https://doc.scrapy.org/en/1.2/topics/architecture.html)
 * Each site will have a custom spider `/spiders/<sitename>_spider.py` which contains rules specific to collecting links and parsing information contained in that site.
-* All spiders should return an Article [item](https://doc.scrapy.org/en/1.2/topics/items.html) (see `items.py`) which will be be validated and saved by shared logic in `pipline.py`
-  * If you have additional metadata consider creating new item class and inheriting from Article as shown [here](https://doc.scrapy.org/en/1.2/topics/items.html#extending-items)
+* All spiders should return an Article [item](https://doc.scrapy.org/en/1.2/topics/items.html) (see `items.py`) which will be be validated and saved by shared logic in `pipline.py`  
 
 ## Data Spec (Work in progress):  
-`language`: language of the text
-`url`: the url of an article
+
+#### Required:  
+`language`: language of the text  
+`url`: the url of an article  
+`text_blob`: body of article/text  
+`source`: source website  
+
+#### Optional/If exists:  
 `authors`: the authors of a particular article  
 `pub_datetime`: date and time an article was published  
 `modified_datetime`: date and time article was last modified  
 `title`: the headline of a page/article/news item  
 `lead`: opening paragraph, initial bolded text or summary  
-`text_blob`: body of article/text  
-`source`: source website  
-`category`: the category an article/domain falls under  
 
-For categories, we're considering:  
-- far-right (DailyStormer)  
-- conspiracy website (info-wars)  
 
 ## Pipeline
 
@@ -37,36 +45,36 @@ A collection of objects containing cleaning, validation and persistence logic. E
 ### How do I create one?
   1. Create a new class with the proper naming convention in `scrape_right/scrape_right/pipelines.py`.
   2. Implement a public method named `process_item` which receives both an `item` and `spider`. If the `item` passes whatever logic is present in this method, `return item`. If not, `DropItem`, using Scrapy's custom exception. The following is an example taken from the Scrapy [documentation](https://doc.scrapy.org/topics/item-pipeline.html):
-```python
-from scrapy.exceptions import DropItem
+  ```python
+  from scrapy.exceptions import DropItem
 
-class PricePipeline:
+  class PricePipeline:
 
-    vat_factor = 1.15
+      vat_factor = 1.15
 
-    def process_item(self, item, spider):
-        if item['price']:
-            if item['price_excludes_vat']:
-                item['price'] = item['price'] * self.vat_factor
-            return item
-        else:
-            raise DropItem("Missing price in %s" % item)
-  ```
+      def process_item(self, item, spider):
+          if item['price']:
+              if item['price_excludes_vat']:
+                  item['price'] = item['price'] * self.vat_factor
+              return item
+          else:
+              raise DropItem("Missing price in %s" % item)
+    ```
   3. Add your pipeline object to `ITEM_PIPELINES` in `scrape_right/scrape_right/settings.py`. The key should be the relative import path to your object, i.e. `scrape_right.pipelines.CleanTextPipeline`. The value should be an integer specifying the order that the pipeline should be run. (Pipeline A and Pipeline B with values 1 and 2 respectively implies: every item will first pass through Pipeline A then Pipeline B.)
-
-## How can you help?  
-* Experience with scrapy or general ideas about direction of project? Join us in slack!
-* Input or additions to our site list.
-* Volunteer to build a spider - check in slack or via PR first to prevent duplicate work.
-* Help design and build our pipeline
-* Let us know how you'd like to use this data for your own analysis. Suggestions for new sources/metadata you'd like to see to facilitate your analysis.
-* We welcome any and all input or ideas you may have.
 
 ## Sites to Scrape:  
 **Be careful: some of these sites are seriously dark corners of the web. Hate groups, militia's, white nationalists, etc. Browse with care!**  
 
+### Done  
+Coming soon!  
+
+### In Progress  
+[Breitbart](http://www.breitbart.com/) - @bstarling in slack  
+[Compact-Online](http://www.compact-online.de) @lukas in slack
+
+### Looking for help  
+
 #### English  
-[Breitbart](http://www.breitbart.com/) (In progress)  
 [Daily Stormer](http://www.dailystormer.com/)  
 [Stormfront](https://www.stormfront.org/forum/index.php/)  
 /pol (4chan)  
@@ -92,3 +100,4 @@ http://www.pi-news.net
 * Activate your environment. Ex: `source activate scrape-right` (mac/linux) or `activate scrape-right` (windows).  
 * To test everything is working, navigate down to the scrapy project directory `cd scrape_right` and run `scrapy crawl breitbart -o test.json` this will activate the breitbart spider and save the output to a json file in your active directory.  
 * Questions or issues you can join the team in slack and/or ping @bstarling.  
+
