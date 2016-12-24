@@ -9,14 +9,15 @@ import scrapy
 
 
 class Article(scrapy.Item):
-
+    # Required
     language = scrapy.Field()
     url = scrapy.Field()
+    text_blob = scrapy.Field()
+    source = scrapy.Field()
+
+    # Optional
     authors = scrapy.Field()
     pub_datetime = scrapy.Field()
     modified_datetime = scrapy.Field()
     title = scrapy.Field()
     lead = scrapy.Field()
-    text_blob = scrapy.Field()
-    source = scrapy.Field()
-    category = scrapy.Field()
