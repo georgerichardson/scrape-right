@@ -108,14 +108,14 @@ http://www.pi-news.net
 
 #### Give it a try!
 * Fork the repository.
-* Make a clone by typing: git clone `https://github.com/<yourusername>/scrape-right.git`.
-* cd scrape-right.
-* Create a branch to work from: `git git checkout -b <your-branch>`. You can see all branches by typing git branch.
+* Make a clone by typing: `git clone https://github.com/<yourusername>/scrape-right.git`.
+* Move into the directory containing all the files from your cloned repository by typing `cd scrape-right`.
+* Create a branch to work from: `git checkout -b <your-branch>`. You can see all branches by typing `git branch`.
 * Now do `git push -u <remote-name> <your-branch>`. Usually `<remote-name>` is origin.
-* `git push -u <remote-name> <your-branch>`.
-* Now make a small change in README.md, let's say, `vi README.md`.
+* Finally, create your remote branch by pushing it to the remote server by typing `git push -u <remote-name> <your-branch>`.
+* Now you can try to make a small change in README.md, let's say. Save your changes and do the following:
 * `git add README.md`.
 * `git commit -m "commit trial"`.
-* `git status`
+* `git status`.
 * `git push -u <remote-name> <your-branch>`. Now go refresh your github page and check the changes are present.
 
