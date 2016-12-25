@@ -9,10 +9,11 @@ We are a sub project under wider data for [democracy](https://medium.com/data-fo
 
 ## How can you help?   
 * Provide feedback on any of our open issues or open new ones.
-* Browse our `help wanted` issues. See if there is anything that interests you.
+* Browse our `help wanted` [issues](https://github.com/Data4Democracy/scrape-right/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22). See if there is anything that interests you.
 * Volunteer to build a spider.
   * Do not worry if you do not have previous experience, there are lots of helpful people in our group chat. Checkout `scrape_right/spiders/example.py` to get a feel for how a basic spider works.
-  * If you already know what site you'd like to work on. Open a pull request stating what you would like to work on. This is a good way solicit for feedback and prevent multiple people from working on the same thing. Ask in slack if you need any help with this.  
+  * If you already know what site you'd like to work on. Open a pull request stating what you would like to work on. This is a good way solicit for feedback and prevent multiple people from working on the same thing. 
+  * Ask us in our group chat or direct message any of the contributors if you would prefer to ask your questions in private.
 * Experience with scrapy and willing to answer questions? Come hang out in slack  
 * Help us standardize and store our data.  
 * Let us know how you'd like to use this data for your own analysis. Suggestions for new sources/metadata you'd like to see to facilitate your analysis.  
@@ -74,6 +75,7 @@ Coming soon!
 [Breitbart](http://www.breitbart.com/) - @bstarling in slack  
 [Compact-Online](http://www.compact-online.de) @lukas in slack  
 [Daily Stormer](http://www.dailystormer.com/) @matt.kleinert in slack  
+[American Renaissance](https://www.amren.com/) @alarcj in slack
 
 ### Looking for help  
 
@@ -82,7 +84,7 @@ Coming soon!
 [Stormfront](https://www.stormfront.org/forum/index.php/)  
 /pol (4chan)  
 [/r/TheDonald](https://www.reddit.com/r/thedonald/) (reddit)  
-[American Renaissance](https://www.amren.com/)
+
 
 #### German
 http://www.blauenarzisse.de  
