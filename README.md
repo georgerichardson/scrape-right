@@ -110,12 +110,12 @@ http://www.pi-news.net
 * Fork the repository.
 * Make a clone by typing: git clone `https://github.com/<yourusername>/scrape-right.git`.
 * cd scrape-right.
-* Create a branch to work from: git git checkout -b `<your-branch>`. You can see all branches by typing git branch.
-* Now do git push -u `<remote-name>` `<your-branch>`. Usually `<remote-name>` is origin.
-* git push -u `<remote-name>` `<your-branch>`.
-* Now make a small change in README.md, let's say, vi README.md.
-* git add README.md.
-* git commit -m "commit trial"
-* git status
-* git push -u `<remote-name>` `<your-branch>`. Now go refresh your github page and check the changes are present.
+* Create a branch to work from: `git git checkout -b <your-branch>`. You can see all branches by typing git branch.
+* Now do `git push -u <remote-name> <your-branch>`. Usually `<remote-name>` is origin.
+* `git push -u <remote-name> <your-branch>`.
+* Now make a small change in README.md, let's say, `vi README.md`.
+* `git add README.md`.
+* `git commit -m "commit trial"`.
+* `git status`
+* `git push -u <remote-name> <your-branch>`. Now go refresh your github page and check the changes are present.
 
