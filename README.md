@@ -104,4 +104,18 @@ http://www.pi-news.net
 * Conda package manager is easiest way to ensure all dependencies are correctly installed. If you have [anaconda](https://www.continuum.io/downloads) installed on your machine run `conda env create -f environment.yml` from the main directory. Alternatively you can install dependencies via pip (see `requirements.txt`).
 * Activate your environment. Ex: `source activate scrape-right` (mac/linux) or `activate scrape-right` (windows).  
 * To test everything is working, navigate down to the scrapy project directory `cd scrape_right` and run `scrapy crawl example -o test.json` this will activate the example spider and should save a json file containing ten quotes inside the `scrape_right` directory.  
-* Questions or issues you can join the team in slack and/or ping @bstarling.  
+* Questions or issues you can join the team in slack and/or ping @bstarling. 
+
+#### Give it a try!
+* Fork the repository.
+* Make a clone by typing: git clone `https://github.com/<yourusername>/scrape-right.git`.
+* cd scrape-right.
+* Create a branch to work from: git git checkout -b `<your-branch>`. You can see all branches by typing git branch.
+* Now do git push -u `<remote-name>` `<your-branch>`. Usually `<remote-name>` is origin.
+* git push -u `<remote-name>` `<your-branch>`.
+* Now make a small change in README.md, let's say, vi README.md.
+* git add README.md.
+* git commit -m "commit trial"
+* git status
+* git push -u `<remote-name>` `<your-branch>`. Now go refresh your github page and check the changes are present.
+
