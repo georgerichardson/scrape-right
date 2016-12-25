@@ -75,7 +75,7 @@ Coming soon!
 [Breitbart](http://www.breitbart.com/) - @bstarling in slack  
 [Compact-Online](http://www.compact-online.de) @lukas in slack  
 [Daily Stormer](http://www.dailystormer.com/) @matt.kleinert in slack  
-[American Renaissance](https://www.amren.com/) @alarcj in slack commit test
+[American Renaissance](https://www.amren.com/) @alarcj in slack 
 
 ### Looking for help  
 
