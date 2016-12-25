@@ -75,7 +75,7 @@ Coming soon!
 [Breitbart](http://www.breitbart.com/) - @bstarling in slack  
 [Compact-Online](http://www.compact-online.de) @lukas in slack  
 [Daily Stormer](http://www.dailystormer.com/) @matt.kleinert in slack  
-[American Renaissance](https://www.amren.com/) @alarcj in slack
+[American Renaissance](https://www.amren.com/) @alarcj in slack commit test
 
 ### Looking for help  
 
@@ -104,4 +104,18 @@ http://www.pi-news.net
 * Conda package manager is easiest way to ensure all dependencies are correctly installed. If you have [anaconda](https://www.continuum.io/downloads) installed on your machine run `conda env create -f environment.yml` from the main directory. Alternatively you can install dependencies via pip (see `requirements.txt`).
 * Activate your environment. Ex: `source activate scrape-right` (mac/linux) or `activate scrape-right` (windows).  
 * To test everything is working, navigate down to the scrapy project directory `cd scrape_right` and run `scrapy crawl example -o test.json` this will activate the example spider and should save a json file containing ten quotes inside the `scrape_right` directory.  
-* Questions or issues you can join the team in slack and/or ping @bstarling.  
+* Questions or issues you can join the team in slack and/or ping @bstarling. 
+
+#### Give it a try!
+* Fork the repository.
+* Make a clone by typing: `git clone https://github.com/<yourusername>/scrape-right.git`.
+* Move into the directory containing all the files from your cloned repository by typing `cd scrape-right`.
+* Create a branch to work from: `git checkout -b <your-branch>`. You can see all branches by typing `git branch`.
+* Now do `git push -u <remote-name> <your-branch>`. Usually `<remote-name>` is origin.
+* Finally, create your remote branch by pushing it to the remote server by typing `git push -u <remote-name> <your-branch>`.
+* Now you can try to make a small change in README.md, let's say. Save your changes and do the following:
+* `git add README.md`.
+* `git commit -m "commit trial"`.
+* `git status`.
+* `git push -u <remote-name> <your-branch>`. Now go refresh your github page and check the changes are present.
+
