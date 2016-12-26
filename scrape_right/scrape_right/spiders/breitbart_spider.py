@@ -5,13 +5,25 @@ from scrape_right.items import Article
 class BreitbartSpider(scrapy.Spider):
     name = 'breitbart'
 
+    def __init__(self, limit=None, *args, **kwargs):
+        super(BreitbartSpider, self).__init__(*args, **kwargs)
+        self.limit = limit
+
     def start_requests(self):
+
         urls = [
             'http://www.breitbart.com/'
         ]
 
-        for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse_url)
+        # limits crawl to main page
+        if self.limit == 'Y':
+            for url in urls:
+                yield scrapy.Request(url=url, callback=self.parse_landing_page)
+
+        # crawl the entire site
+        else:
+            for url in urls:
+                yield scrapy.Request(url=url, callback=self.parse_url)
 
     def parse_url(self, response):
         '''Parse top nav bar for major categories. Schedule requests to each category
