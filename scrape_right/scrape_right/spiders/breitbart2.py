@@ -1,53 +1,36 @@
-import scrapy
 from scrape_right.items import Article
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy import Request
+from scrapy.linkextractors.lxmlhtml import LxmlLinkExtractor
 
 
-class BreitbartSpider(scrapy.spiders.CrawlSpider):
-    name = 'breitbart'
+class BreitbartSpider2(CrawlSpider):
+    name = 'breitbart2'
 
-    def __init__(self, limit=None, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.limit = limit
+    allowed_domains = ['breitbart.com']
+    start_urls = ["http://www.breitbart.com/"]
 
-    def start_requests(self):
+    rules = (
+        Rule(LxmlLinkExtractor(restrict_xpaths=('//div[@id="HWI"]/nav/ul[@class="menu"]')),
+             ),
 
-        urls = [
-            'http://www.breitbart.com/'
-        ]
-
-        # limits crawl to main page
-        if self.limit == 'Y':
-            for url in urls:
-                yield scrapy.Request(url=url, callback=self.parse_landing_page)
-
-        # crawl all subsections
-        else:
-            for url in urls:
-                yield scrapy.Request(url=url, callback=self.parse_url)
-
-    def parse_url(self, response):
-        '''Parse top nav bar for major categories. Schedule requests to each category
-        landing page and call parse_landing_page
-        '''
-
-        # Menu bar found at top of page contains sub-sections of site
-        menu_bar = response.xpath('//ul[contains(@class, "menu")]')[0:2]  # bottom bar is duplicate
-        for menu in menu_bar:
-            category_list = menu.xpath('.//a/@href').extract()
-            for category in category_list:
-                yield scrapy.Request(response.urljoin(category),
-                                     callback=self.parse_landing_page)
+        Rule(LxmlLinkExtractor(restrict_xpaths=('//div[@class="pagination"]')),
+             callback='parse_landing_page', follow=True)
+        )
 
     def parse_landing_page(self, response):
         '''Parse landing page looking for articles. Schedule requests to article URL
         and submit to parse_article
         '''
 
+        # Limit to main article body to avoid tag conflicts with other portions of page
+        page = response.xpath('//div[contains(@id, "MainW")]')
+
         # search landing page for articles
-        for article in response.xpath('//article/a'):
+        for article in page.xpath('//article/a'):
             article_url = article.xpath('@href').extract_first()
-            yield scrapy.Request(response.urljoin(article_url),
-                                 callback=self.parse_article)
+            yield Request(response.urljoin(article_url),
+                          callback=self.parse_article)
 
     def parse_article(self, response):
         '''Main function for parsing articles. Takes article URLS and yields
