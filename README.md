@@ -12,7 +12,7 @@ We are a sub project under wider data for [democracy](https://medium.com/data-fo
 * Browse our `help wanted` [issues](https://github.com/Data4Democracy/scrape-right/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22). See if there is anything that interests you.
 * Volunteer to build a spider.
   * Do not worry if you do not have previous experience, there are lots of helpful people in our group chat. Checkout `scrape_right/spiders/example.py` to get a feel for how a basic spider works.
-  * If you already know what site you'd like to work on. Open a pull request stating what you would like to work on. This is a good way solicit for feedback and prevent multiple people from working on the same thing. 
+  * If you already know what site you'd like to work on. Open a pull request stating what you would like to work on. This is a good way solicit for feedback and prevent multiple people from working on the same thing.
   * Ask us in our group chat or direct message any of the contributors if you would prefer to ask your questions in private.
 * Experience with scrapy and willing to answer questions? Come hang out in slack  
 * Help us standardize and store our data.  
@@ -75,7 +75,7 @@ Coming soon!
 [Breitbart](http://www.breitbart.com/) - @bstarling in slack  
 [Compact-Online](http://www.compact-online.de) @lukas in slack  
 [Daily Stormer](http://www.dailystormer.com/) @matt.kleinert in slack  
-[American Renaissance](https://www.amren.com/) @alarcj in slack 
+[American Renaissance](https://www.amren.com/) @alarcj in slack  
 
 ### Looking for help  
 
@@ -104,7 +104,7 @@ http://www.pi-news.net
 * Conda package manager is easiest way to ensure all dependencies are correctly installed. If you have [anaconda](https://www.continuum.io/downloads) installed on your machine run `conda env create -f environment.yml` from the main directory. Alternatively you can install dependencies via pip (see `requirements.txt`).
 * Activate your environment. Ex: `source activate scrape-right` (mac/linux) or `activate scrape-right` (windows).  
 * To test everything is working, navigate down to the scrapy project directory `cd scrape_right` and run `scrapy crawl example -o test.json` this will activate the example spider and should save a json file containing ten quotes inside the `scrape_right` directory.  
-* Questions or issues you can join the team in slack and/or ping @bstarling. 
+* Questions or issues you can join the team in slack and/or ping @bstarling.  
 
 #### Give it a try!
 * Fork the repository.
@@ -118,4 +118,3 @@ http://www.pi-news.net
 * `git commit -m "commit trial"`.
 * `git status`.
 * `git push -u <remote-name> <your-branch>`. Now go refresh your github page and check the changes are present.
-
