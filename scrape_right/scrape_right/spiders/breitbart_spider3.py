@@ -17,6 +17,8 @@ class BreitbartSpider(scrapy.spiders.CrawlSpider):
             urls = [
                 'http://www.breitbart.com/{}/'.format(self.category)
                 ]
+        else:
+            urls = ['http://www.breitbart.com']
 
         if self.limit == 0:
             for url in urls:
@@ -48,7 +50,7 @@ class BreitbartSpider(scrapy.spiders.CrawlSpider):
         print('On {} next page is {}'.format(response.url, next_page))
 
         page = response.xpath('//div[contains(@id, "MainW")]')
-        
+
         for article in page.xpath('//article/a'):
             article_url = article.xpath('@href').extract_first()
             yield Request(response.urljoin(article_url),
