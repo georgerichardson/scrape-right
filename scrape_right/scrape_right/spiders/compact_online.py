@@ -17,8 +17,7 @@ class CompactOnline(CrawlSpider):
         )
 
     def parse_article(self, response):
-        '''Main function for parsing articles. Takes response from parse_homepage
-        and yields Article item'''
+        '''Main function for parsing articles. Yields Article item'''
 
         # Combine text from <p> tags into one string
         def get_text_blob(response):
