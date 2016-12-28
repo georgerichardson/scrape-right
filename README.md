@@ -76,6 +76,7 @@ Coming soon!
 [Compact-Online](http://www.compact-online.de) @lukas in slack  
 [Daily Stormer](http://www.dailystormer.com/) @matt.kleinert in slack  
 [American Renaissance](https://www.amren.com/) @alarcj in slack  
+[/r/TheDonald](https://www.reddit.com/r/thedonald/) (New project [here](https://github.com/Data4Democracy/reddit-api-miner)
 
 ### Looking for help  
 
@@ -83,7 +84,7 @@ Coming soon!
 
 [Stormfront](https://www.stormfront.org/forum/index.php/)  
 /pol (4chan)  
-[/r/TheDonald](https://www.reddit.com/r/thedonald/) (reddit)  
+
 
 
 #### German
