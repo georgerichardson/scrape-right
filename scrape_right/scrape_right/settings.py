@@ -68,6 +68,7 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 8
 ITEM_PIPELINES = {
     'scrape_right.pipelines.ValidateRequiredFields': 100,
     'scrape_right.pipelines.CleanTextPipeline': 200,
+    'scrape_right.pipelines.StandardizeDatetime': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
